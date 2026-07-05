@@ -2941,3 +2941,37 @@ Durante todo el proyecto se mantendrá el siguiente orden de prioridades:
 7. Nuevas funcionalidades.
 
 Esta jerarquía constituye la guía oficial para la toma de decisiones técnicas.
+
+## B.6 Control de Versiones
+
+El Proyecto Bots Binance utiliza Git como sistema oficial de control de versiones.
+Repositorio oficial:
+Proyecto-Bots-Binance
+Toda modificación permanente del proyecto deberá registrarse mediante commits antes de considerarse parte de una versión oficial.
+Los cambios temporales o experimentales no deberán incorporarse directamente a la rama estable.
+
+## B.7 Estrategia de Ramas
+
+El desarrollo del proyecto se organiza mediante dos ramas permanentes.
+
+### main
+
+Representa la última versión estable del proyecto.
+Únicamente contendrá versiones completamente validadas.
+
+### develop
+
+Constituye la rama oficial de desarrollo.
+Toda nueva funcionalidad deberá implementarse inicialmente en esta rama.
+Una vez validada y documentada podrá incorporarse a la rama principal.
+
+## B.8 Versionado Oficial
+
+Las versiones oficiales del Proyecto Bots Binance se identifican mediante Git Tags.
+Ejemplos:
+v2.2
+v2.3
+v2.4
+v3.0
+Cada versión deberá representar un estado estable y completamente funcional de la plataforma.
+La documentación oficial deberá mantenerse sincronizada con cada versión publicada.
