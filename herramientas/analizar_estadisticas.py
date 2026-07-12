@@ -6,8 +6,8 @@
 ANALIZADOR DE ESTADÍSTICAS
 Proyecto Bots Binance
 
-Versión : 1.0
-Etapa   : 1
+Versión : 1.1
+Etapa   : 2
 Autor   : Xavier Herrera + ChatGPT
 
 Este módulo analiza los archivos generados por los bots.
@@ -30,31 +30,175 @@ REGLAS_FORTALEZAS = (
     "F001",
     "F002",
     "F003",
-    "F004",
-    "F005",
-    "F006",
-    "F007",
-    "F008",
+    "F004"
 )
 
 REGLAS_ACTIVAS = {
     "F001": True,
     "F002": True,
     "F003": True,
-    "F004": False,
+    "F004": True,
     "F005": False,
     "F006": False,
     "F007": False,
     "F008": False,
 }
 
+
+REGLAS_DEBILIDADES = (
+)
+
+REGLAS_RIESGOS = (
+)
+
+REGLAS_PRIORIDADES = (
+)
+
+REGLAS_CONCLUSION = (
+)
+
+
+# ==========================================================
+# MOTOR DE INVESTIGACIÓN ESTRATÉGICA
+# ==========================================================
+
+REGLAS_INVESTIGACION = (
+    "I001",
+    "I002",
+    "I003",
+    "I004",
+    "I005",
+)
+
+REGLAS_INVESTIGACION_ACTIVAS = {
+    "I001": True,
+    "I002": True,
+    "I003": True,
+    "I004": True,
+    "I005": True,
+}
+
+REGLAS_ACTIVAS_CONFIG = {
+    "hallazgos": REGLAS_ACTIVAS,
+    "investigaciones": REGLAS_INVESTIGACION_ACTIVAS
+}
+
+REGLAS_INVESTIGACION_CFG = {
+
+    "I001": {
+        "nombre": "Calidad del Score",
+        "descripcion":"",
+        "prioridad": 1,
+        "categoria": "Investigación",
+        "version": "1.0",
+        "estado":"Implementada",
+        "tags":[
+            "Score",
+            "Clasificación",
+            "Optimización"
+        ],
+    },
+
+    "I002": {
+        "nombre": "Rendimiento por símbolo",
+        "descripcion":"",
+        "prioridad": 2,
+        "categoria": "Investigación",
+        "version": "1.0",
+        "estado":"Implementada",
+        "tags":[
+            "Score",
+            "Clasificación",
+            "Optimización"
+        ],
+    },
+
+    "I003": {
+        "nombre": "LONG vs SHORT",
+        "descripcion":"",
+        "prioridad": 3,
+        "categoria": "Investigación",
+        "version": "1.0",
+        "estado":"Implementada",
+        "tags":[
+            "Score",
+            "Clasificación",
+            "Optimización"
+        ],
+    },
+
+    "I004": {
+        "nombre": "Contexto temporal",
+        "descripcion":"",
+        "prioridad": 4,
+        "categoria": "Investigación",
+        "version": "1.0",
+        "estado":"Implementada",
+        "tags":[
+            "Score",
+            "Clasificación",
+            "Optimización"
+        ],
+    },
+
+    "I005": {
+        "nombre": "Calidad del RSI",
+        "descripcion":"",
+        "prioridad": 5,
+        "categoria": "Investigación",
+        "version": "1.0",
+        "estado":"Implementada",
+        "tags":[
+            "Score",
+            "Clasificación",
+            "Optimización"
+        ]
+    }
+}
+
+
+REGLAS_OPORTUNIDADES = (
+)
+
+
+
+# ==========================================================
+# CONFIGURACIÓN DEL MOTOR DE EVALUACIÓN
+# ==========================================================
+
+# ==========================================================
+# MOTOR DE EVALUACIÓN DE OPTIMIZACIONES
+# ==========================================================
+ICO_CRITERIOS = {
+    "profit_factor": 1.00,
+    "expectancy": 0.00,
+    "cobertura": 40.0
+}
+
+ICO_CONFIG = {
+    "pesos": {
+        "profit_factor": 0.40,
+        "expectancy": 0.25,
+        "win_rate": 0.20,
+        "cobertura": 0.15
+    }
+}   
+
+
 REGLAS_HALLAZGOS = {
     "F001": {
         "nombre": "Ventaja estadística positiva",
+        "codigo": "F001",
+        "fuentes": [
+            "metricas",
+            "diagnostico",
+            "evidencia"
+        ],
         "descripcion": (
             "Determina si la estrategia demuestra "
             "una ventaja estadística sostenible."
         ),
+        "categoria": "Fortaleza",
         "prioridad": "Alta",
         "estado": "Implementada",
         "version": "1.0",
@@ -62,17 +206,25 @@ REGLAS_HALLAZGOS = {
             "profit_factor_min": 1.00,
             "expectancy_min": 0.00,
             "score_min": 55
-        }
+        },
+        "activo": True,
 
     },
 
     "F002": {
         "nombre": "Gestión eficiente del riesgo",
+        "codigo": "F002",
+        "fuentes": [
+            "metricas",
+            "diagnostico",
+            "evidencia"
+        ],
         "descripcion": (
             "Evalúa si la estrategia mantiene una relación "
             "equilibrada entre beneficio, riesgo y "
             "recuperación del capital."
         ),
+        "categoria": "Fortaleza",
         "prioridad": "Alta",
         "estado": "Implementada",
         "version": "1.0",
@@ -80,12 +232,20 @@ REGLAS_HALLAZGOS = {
             "reward_risk_min": 1.50,
             "recovery_factor_min": 1.00,
             "drawdown_max": 15.00
-        }
+        },
+        "activo": True,
     },
 
     "F003": {
         "nombre": "Consistencia operativa",
+        "codigo": "F003",
+        "fuentes": [
+            "metricas",
+            "diagnostico",
+            "evidencia"
+        ],
         "descripcion": "...",
+        "categoria": "Fortaleza",
         "prioridad": "Alta",
         "estado": "Implementada",
         "version": "1.0",
@@ -93,10 +253,40 @@ REGLAS_HALLAZGOS = {
             "expectancy_min": 0.0,
             "recovery_factor_min": 1.50,
             "max_ratio_racha_perdedora": 0.10
-        }
+        },
+        "activo": True,
+    },
+
+    "F004": {
+        "nombre": "Diversificación operativa",
+        "codigo": "F004",
+        "fuentes": [
+            "metricas",
+            "diagnostico",
+            "evidencia"
+        ],
+        "descripcion": (
+            "Evalúa si la rentabilidad de la estrategia se "
+            "encuentra adecuadamente distribuida entre los "
+            "activos analizados."
+        ),
+        "categoria": "Fortaleza",
+        "prioridad": "Media",
+        "estado": "Implementada",
+        "version": "1.0",
+        "parametros": {
+
+            "aporte_ganancias_max": 40.0,
+
+            "drawdown_top2_max": 60.0
+
+        },
+        "activo": True,
     }
 }
 
+ESTADO_CUMPLE = "Cumple"
+ESTADO_NO_CUMPLE = "No cumple"
 
 from pathlib import Path
 from datetime import datetime
@@ -118,7 +308,33 @@ class AnalizadorEstadisticas:
         self.df_cerradas = None
         self.df_abiertas = None
         self.fecha_analisis = datetime.now()
-    
+
+        # =====================================================
+        # Caché de motores
+        # =====================================================
+
+        self.metricas = None
+        self.metricas_financieras = None
+        self.drawdown = None
+        self.diagnostico = None
+        self.evidencia = None
+        self.hallazgos = None
+        self.investigaciones = None
+
+        # Nuevos análisis específicos
+        self.analisis_score = None
+        self.analisis_simbolos = None
+        self.analisis_temporal = None
+        self.analisis_rsi = None
+        self.analisis_long_short = None
+        self.curva_capital = None
+
+        self.simulacion_score = None
+
+        self.long_short = None
+        self.estadisticas_simbolos = None
+        self.rachas = None
+        
     # --------------------------------------------------
 
     # 2. CARGA Y PREPARACIÓN DE DATOS
@@ -128,6 +344,59 @@ class AnalizadorEstadisticas:
         del Motor de Hallazgos.
         """
         return REGLAS_HALLAZGOS[codigo]
+    
+    def crear_hallazgo(self, codigo):
+        """
+        Construye la estructura estándar utilizada por todas las
+        reglas del Motor de Hallazgos Estratégicos.
+
+        Todas las reglas deben devolver este objeto para mantener
+        una estructura homogénea y facilitar futuras exportaciones
+        (JSON, PDF, Dashboard, API, etc.).
+        """
+
+        regla = self.obtener_configuracion_regla(codigo)
+        return {
+            "codigo": codigo,
+            "categoria": regla["categoria"],
+            "titulo": regla["nombre"],
+            "descripcion": "",
+            "estado": "",
+            "prioridad": regla["prioridad"],
+            "version": regla["version"],
+            "valor": None,
+            "umbral": regla["parametros"],
+            "evidencia": {},
+            "recomendacion": ""
+        }
+    
+
+    """
+    Construye la estructura oficial utilizada por
+    todas las investigaciones estratégicas.
+
+    Mantiene una estructura homogénea para facilitar
+    exportaciones futuras (JSON, Dashboard, API, PDF).
+    """
+    def crear_investigacion(self, codigo):
+        regla = REGLAS_INVESTIGACION_CFG[codigo]
+        return {
+            "codigo": codigo,
+            "titulo": regla["nombre"],
+            "categoria": regla["categoria"],
+            "prioridad": regla["prioridad"],
+            "version": regla["version"],
+            "hipotesis": "",
+            "objetivo": "",
+            "evidencia": {},
+            "resultado": self.crear_resultado_investigacion(),
+            "conclusion": "",
+            "siguiente_paso": "",
+            "referencias":[]
+        }
+    
+    def crear_resultado_investigacion(self):
+        return {"estado": "Pendiente", "impacto": "", "confianza": "", "metricas": {}}
 
     def seleccionar_bot(self):
         print("\n" + "=" * 55)
@@ -458,7 +727,7 @@ class AnalizadorEstadisticas:
         # Maximum Drawdown
         # -----------------------------------------
 
-        mdd = self.obtener_max_drawdown()["max_drawdown"]
+        mdd = self.drawdown["max_drawdown"]
 
         # -----------------------------------------
         # Recovery Factor
@@ -476,16 +745,6 @@ class AnalizadorEstadisticas:
         roi_promedio = df["ROI"].dropna().mean()
         if pd.isna(roi_promedio):
             roi_promedio = 0
-
-        # -----------------------------------------
-        # Sharpe Ratio (simplificado)
-        # -----------------------------------------
-
-        # roi_std = df["ROI"].dropna().std()
-        # if pd.isna(roi_std) or roi_std == 0:
-        #     sharpe = 0
-        # else:
-        #     sharpe = roi_promedio / roi_std
 
         # -----------------------------------------
         # Resultado
@@ -535,10 +794,7 @@ class AnalizadorEstadisticas:
         curva de capital acumulada.
         """
 
-        df = self.obtener_curva_capital()
-
-        # if df.empty:
-        #    return {"max_drawdown": 0.0, "max_drawdown_pct": 0.0, "capital_maximo": 0.0, "capital_minimo": 0.0}
+        df = self.curva_capital
 
         if df.empty:
             return {"max_drawdown": 0.0, "capital_maximo": 0.0, "capital_minimo": 0.0}
@@ -549,15 +805,9 @@ class AnalizadorEstadisticas:
         # Drawdown absoluto
         df["drawdown"] = df["capital"] - df["capital_max"]
 
-        # Drawdown porcentual
-        # df["drawdown_pct"] = 0.0
-
         mask = df["capital_max"] != 0
 
         # df.loc[mask, "drawdown_pct"] = (df.loc[mask, "drawdown"] / df.loc[mask, "capital_max"]) * 100
-
-        # return {"max_drawdown": df["drawdown"].min(), "max_drawdown_pct": df["drawdown_pct"].min(), "capital_maximo": df["capital"].max(),
-        #        "capital_minimo": df["capital"].min()}
 
         return {"max_drawdown": df["drawdown"].min(), "capital_maximo": df["capital"].max(),
                 "capital_minimo": df["capital"].min()}
@@ -569,6 +819,9 @@ class AnalizadorEstadisticas:
         Calcula las rachas máximas de operaciones
         ganadoras y perdedoras consecutivas.
         """
+               
+        if self.rachas is not None:
+            return self.rachas
 
         df = self.df_cerradas.sort_values("fecha_hora").copy()
         
@@ -622,13 +875,15 @@ class AnalizadorEstadisticas:
 
         nombre = {"G": "Ganadoras", "P": "Perdedoras", "N": "Neutras"}
 
-        return {
+        self.rachas = {
             "max_ganadoras": max_ganadoras,
             "max_perdedoras": max_perdedoras,
             "racha_actual": nombre[ultima],
             "tipo_actual": ultima,
             "longitud_actual": longitud
         }
+
+        return self.rachas
     
     # --------------------------------------------------
 
@@ -640,11 +895,17 @@ class AnalizadorEstadisticas:
     # --------------------------------------------------
 
     def obtener_long_short(self):
+        if self.long_short is not None:
+            return self.long_short
         direcciones = {}
         for direccion in ["LONG", "SHORT"]:
             df_dir = self.df_cerradas[self.df_cerradas["direccion"] == direccion]
             direcciones[direccion] = self.calcular_metricas(df_dir)
-        return direcciones
+        
+        self.long_short = direcciones
+        return self.long_short
+    
+    #    return direcciones
     
     # --------------------------------------------------
 
@@ -652,17 +913,211 @@ class AnalizadorEstadisticas:
         """
         Calcula las estadísticas de cada símbolo.
         """
+        if self.estadisticas_simbolos is not None:
+            return self.estadisticas_simbolos
 
         estadisticas = {}
         simbolos = sorted(self.df_cerradas["simbolo"].unique())
         for simbolo in simbolos:
             df_simbolo = self.df_cerradas[self.df_cerradas["simbolo"] == simbolo]
             estadisticas[simbolo] = self.calcular_metricas(df_simbolo)
-        return estadisticas
+        self.estadisticas_simbolos = estadisticas
+
+        return self.estadisticas_simbolos   
+    #    return estadisticas
 
     # --------------------------------------------------
 
+    # --------------------------------------------------
+    # 3.3 Herramientas de Segmentación Estadística
+    # -------------------------------------------------
+    def obtener_analisis_segmentado(self, campo, segmentos=None):
+        """
+        Genera un análisis estadístico segmentado para
+        cualquier variable del dataset.
+
+        Si 'segmentos' es None, el análisis se realiza
+        por categorías (ej.: símbolo, dirección).
+
+        Si 'segmentos' contiene límites numéricos,
+        se agrupa por rangos.
+        """
+
+        if self.df_cerradas.empty:
+            return {"campo": campo, "total_operaciones": 0, "segmentos": {}
+            }
+
+        df = self.df_cerradas.copy()
+
+        # ------------------------------------------
+        # Segmentación
+        # ------------------------------------------
+        if segmentos is not None:
+            etiquetas = []
+            for i in range(len(segmentos) - 1):
+                etiquetas.append(f"{segmentos[i]}-{segmentos[i+1]-1}")
+
+            df["_grupo"] = pd.cut(df[campo], bins=segmentos, labels=etiquetas, include_lowest=True, right=False)
+
+        else:
+            df["_grupo"] = df[campo]
+
+        resultado = {"campo": campo, "total_operaciones": len(df), "segmentos": {}}
+
+        # ------------------------------------------
+        # Estadísticas
+        # ------------------------------------------
+
+        for grupo, datos in df.groupby("_grupo", observed=False):
+            if len(datos) == 0:
+                continue
+
+            pnl = datos["PnL"]
+
+            ganadoras = pnl[pnl > 0]
+            perdedoras = pnl[pnl < 0]
+
+            ganancia_bruta = ganadoras.sum()
+            perdida_bruta = abs(perdedoras.sum())
+
+            if perdida_bruta > 0:
+                profit_factor = ganancia_bruta / perdida_bruta
+            else:
+                profit_factor = float("inf")
+
+            promedio_ganancia = (
+                ganadoras.mean()
+                if len(ganadoras)
+                else 0
+            )
+
+            promedio_perdida = (
+                abs(perdedoras.mean())
+                if len(perdedoras)
+                else 0
+            )
+
+            reward_risk = (
+                promedio_ganancia / promedio_perdida
+                if promedio_perdida > 0
+                else float("inf")
+            )
+
+            resultado["segmentos"][str(grupo)] = {
+                "operaciones": len(datos),
+                "ganadoras": int((pnl > 0).sum()),
+                "perdedoras": int((pnl < 0).sum()),
+                "win_rate":
+                    round((pnl > 0).mean() * 100, 2),
+                "profit_factor":
+                    round(profit_factor, 2),
+                "expectancy":
+                    round(pnl.mean(), 4),
+                "reward_risk":
+                    round(reward_risk, 2),
+                "roi":
+                    round(datos["ROI"].mean(), 2),
+                "pnl":
+                    round(pnl.sum(), 2)
+            }
+
+        return resultado
+
+    def obtener_analisis_score(self):
+        """
+        Devuelve el análisis segmentado del Score.
+
+        El resultado queda almacenado en caché para
+        evitar recálculos durante la ejecución.
+        """
+
+        if self.analisis_score is not None:
+            return self.analisis_score
+
+        self.analisis_score = (
+            self.obtener_analisis_segmentado(
+                campo="score",
+                segmentos=[0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 101]
+            )
+        )
+
+        return self.analisis_score
+
+    # --------------------------------------------------
+    # 3.4 HERRAMIENTAS DE SIMULACIÓN
+    # --------------------------------------------------
+    def simular_umbral_minimo(self, campo, umbral):
+        """
+        Simula el comportamiento de la estrategia
+        eliminando todas las operaciones cuyo
+        valor del campo sea inferior al umbral.
+        """
+
+        df = self.df_cerradas.copy()
+        df = df[df[campo] >= umbral]
+        operaciones = len(df)
+
+        if operaciones == 0:
+            return None
+
+        pnl = df["PnL"]
+        ganancias = pnl[pnl > 0]
+        perdidas = pnl[pnl < 0]
+        ganancia_bruta = ganancias.sum()
+
+        perdida_bruta = abs(perdidas.sum())
+
+        profit_factor = (
+            ganancia_bruta / perdida_bruta
+            if perdida_bruta > 0
+            else float("inf")
+        )
+
+        expectancy = pnl.mean()
+
+        win_rate = ((pnl > 0).mean() * 100)
+
+        roi = df["ROI"].mean()
+
+        return {
+            "umbral": umbral,
+            "operaciones": operaciones,
+            "cobertura":
+                round(operaciones / len(self.df_cerradas)*100, 2),
+
+            "profit_factor":
+                round(profit_factor, 2),
+
+            "expectancy":
+                round(expectancy, 4),
+
+            "win_rate":
+                round(win_rate, 2),
+
+            "roi":
+                round(roi, 2)
+
+        }
+
+    def obtener_simulacion_score(self):
+        if self.simulacion_score is not None:
+            return self.simulacion_score
+        simulaciones = []
+        for umbral in range(20,91,5):
+            r = self.simular_umbral_minimo("score", umbral)
+
+            if r:
+                simulaciones.append(r)
+
+        self.simulacion_score = simulaciones
+
+        return simulaciones
+
+   
+    # --------------------------------------------------
     # 3.3 Diagnóstico Automático
+    # --------------------------------------------------
+
     def obtener_metricas_diagnostico(self):
         """
         Reúne todas las métricas necesarias para el
@@ -674,8 +1129,9 @@ class AnalizadorEstadisticas:
         por otros métodos.
         """
 
-        financieras = self.obtener_metricas_financieras(self.df_cerradas)
-        drawdown = self.obtener_max_drawdown()
+    #    financieras = self.obtener_metricas_financieras(self.df_cerradas)
+        financieras = self.metricas_financieras
+        drawdown = self.drawdown
         rachas = self.obtener_rachas()
 
         metricas = {}
@@ -725,7 +1181,7 @@ class AnalizadorEstadisticas:
         )
 
         return metricas
-        
+
     # --------------------------------------------------
 
     def obtener_score_estrategico(self, m):
@@ -735,6 +1191,11 @@ class AnalizadorEstadisticas:
         """
 
         # m = self.obtener_metricas_diagnostico()
+
+        if m is None:
+            raise ValueError(
+                "obtener_metricas_diagnostico() devolvió None."
+        )
 
         score = 0
 
@@ -827,7 +1288,8 @@ class AnalizadorEstadisticas:
         }
     # --------------------------------------------------
 
-    def obtener_diagnostico(self):
+    def obtener_diagnostico(self, metricas=None): 
+    # def obtener_diagnostico(self):
         """
         Interpreta de forma integrada las métricas
         calculadas por el analizador.
@@ -836,10 +1298,15 @@ class AnalizadorEstadisticas:
         sino identificar las posibles causas del
         desempeño de la estrategia.
         """
+        if metricas is None:
+            metricas = self.obtener_metricas_diagnostico()
 
-        m = self.obtener_metricas_diagnostico()
+        score = self.obtener_score_estrategico(metricas)
+        m = metricas
 
-        score = self.obtener_score_estrategico(m)
+    #    m = self.obtener_metricas_diagnostico()
+
+    #    score = self.obtener_score_estrategico(m)
 
         fortalezas = []
         debilidades = []
@@ -980,6 +1447,8 @@ class AnalizadorEstadisticas:
             "score": score["score"],
             "nivel": score["nivel"],
         }
+
+
     # --------------------------------------------------
 
     # ============================================================
@@ -1009,6 +1478,24 @@ class AnalizadorEstadisticas:
         No interpreta resultados.
         Únicamente resume hechos cuantificables.
         """
+        # ======================================
+        # Evidencia general
+        # ======================================
+
+        # ======================================
+        # Evidencia por símbolo
+        # ======================================
+
+        # ======================================
+        # Evidencia direccional
+        # ======================================
+
+        # ======================================
+        # Evidencia operacional
+        # ======================================
+
+
+
 
         evidencia = {}
 
@@ -1165,23 +1652,21 @@ class AnalizadorEstadisticas:
                 diagnostico,
                 evidencia
             ),
-            "debilidades": [],
-            "riesgos": [],
-            "oportunidades": [],
-            "prioridades": [],
-            "conclusion_general": []
+            "debilidades": self.obtener_debilidades_estrategicas(),
+            "riesgos": self.obtener_riesgos_estrategicos(),
+            "oportunidades": self.obtener_oportunidades_estrategicas(),
+            "prioridades": self.obtener_prioridades_estrategicas(),
+            "conclusion_general": self.obtener_conclusion_general()
         }
 
         return hallazgos
 
-    def obtener_fortalezas_estrategicas(self, metricas, diagnostico, evidencia):
-        """
-        Ejecuta todas las reglas registradas
-        para Fortalezas Estratégicas.
-        """
-        fortalezas = []
+    def ejecutar_reglas(self, lista_reglas, reglas_activas, metricas, diagnostico, evidencia):
+        resultados = []
+        for codigo in lista_reglas:
+            if not reglas_activas.get(codigo, False):
+                continue
 
-        for codigo in REGLAS_FORTALEZAS:
             regla = getattr(self, f"aplicar_regla_{codigo}", None)
 
             if regla is None:
@@ -1189,26 +1674,41 @@ class AnalizadorEstadisticas:
 
             resultado = regla(metricas, diagnostico, evidencia)
 
-            if resultado and resultado not in fortalezas:
-                fortalezas.append(resultado)
+            if resultado:
+                resultados.append(resultado)
 
-        return fortalezas
+        return resultados
 
-        # reglas = (
-        #     self.aplicar_regla_F001,
-        #     self.aplicar_regla_F002,
-        #     self.aplicar_regla_F003,
-        #     self.aplicar_regla_F004,
-        #     self.aplicar_regla_F005
-        # )
+    def obtener_fortalezas_estrategicas(self, metricas, diagnostico, evidencia):
+        """
+        Ejecuta todas las reglas registradas
+        para Fortalezas Estratégicas.
+        """
+        return self.ejecutar_reglas(
+            REGLAS_FORTALEZAS,
+            REGLAS_ACTIVAS,
+            metricas,
+            diagnostico,
+            evidencia
+        )
 
-        # for regla in reglas:
-        #     resultado = regla(metricas, diagnostico, evidencia)
-        #     if resultado and resultado not in fortalezas:
-        #         fortalezas.append(resultado)
 
-        # return fortalezas
-    
+    def obtener_debilidades_estrategicas(self):
+        return []
+
+    def obtener_riesgos_estrategicos(self):
+        return []
+
+    def obtener_oportunidades_estrategicas(self):
+        return []
+
+    def obtener_prioridades_estrategicas(self):
+        return []
+
+    def obtener_conclusion_general(self):
+        return []
+
+
     def aplicar_regla_F001(self, metricas, diagnostico, evidencia):
         """
         ==========================================================
@@ -1236,9 +1736,6 @@ class AnalizadorEstadisticas:
             su estructura principal.
         ==========================================================
         """
-
-    #    if (metricas["profit_factor"] >= 1 and metricas["expectancy"] > 0 and diagnostico["score"] >= 55):
-    #    cfg = self.obtener_configuracion_regla("F001")["parametros"]
         cfg = self.obtener_configuracion_regla("F001")
         p = cfg["parametros"]
 
@@ -1246,12 +1743,27 @@ class AnalizadorEstadisticas:
             and
             diagnostico["score"] >= p["score_min"]
         ):
-            return (
+            
+            hallazgo = self.crear_hallazgo("F001")
+            hallazgo["descripcion"] = (
                 "La estrategia presenta evidencia objetiva de una "
                 "ventaja estadística positiva, mostrando capacidad "
                 "para generar valor esperado favorable de forma "
                 "consistente."
             )
+
+            hallazgo["estado"] = ESTADO_CUMPLE
+            hallazgo["valor"] = {
+                "profit_factor": metricas["profit_factor"],
+                "expectancy": metricas["expectancy"],
+                "score": diagnostico["score"]
+            }
+            hallazgo["umbral"] = p
+            hallazgo["recomendacion"] = (
+                "Continuar la validación estadística antes de "
+                "realizar optimizaciones importantes."
+            )
+            return hallazgo
 
         return None
     
@@ -1297,14 +1809,31 @@ class AnalizadorEstadisticas:
         recuperacion_ok = (metricas["recovery_factor"] >= p["recovery_factor_min"])
         drawdown_ok = (abs(metricas["max_drawdown"]) <= p["drawdown_max"])
 
-        if (riesgo_ok and recuperacion_ok and drawdown_ok):
+        if riesgo_ok and recuperacion_ok and drawdown_ok:
 
-            return (
-                "La estrategia demuestra una gestión "
-                "eficiente del riesgo, manteniendo "
-                "controladas las pérdidas y una adecuada "
-                "capacidad de recuperación del capital."
+            hallazgo = self.crear_hallazgo("F002")
+
+            hallazgo["descripcion"] = (
+                "La estrategia demuestra una gestión eficiente "
+                "del riesgo, manteniendo controladas las pérdidas "
+                "y una adecuada capacidad de recuperación."
             )
+
+            hallazgo["estado"] = ESTADO_CUMPLE
+
+            hallazgo["valor"] = {
+                "reward_risk": metricas["reward_risk"],
+                "recovery_factor": metricas["recovery_factor"],
+                "max_drawdown": metricas["max_drawdown"]
+            }
+
+            hallazgo["umbral"] = p
+            hallazgo["recomendacion"] = (
+                "Mantener la política actual de gestión de riesgo."
+            )
+
+            return hallazgo
+        
         return None
 
     def aplicar_regla_F003(self, metricas, diagnostico, evidencia):
@@ -1347,26 +1876,102 @@ class AnalizadorEstadisticas:
 
         consistencia_expectancy = (metricas["expectancy"] >= p["expectancy_min"])
         recuperacion_ok = (metricas["recovery_factor"] >= p["recovery_factor_min"])
-        racha_ok = (metricas["ratio_racha_perdedora"] <= p["max_ratio_racha_perdedora"])
+        racha_ok = (metricas["ratio_racha_perdedora"] <= p["max_ratio_racha_perdedora"]
+        )
 
         if (consistencia_expectancy and recuperacion_ok and racha_ok):
 
-            return (
-                "La estrategia presenta una consistencia "
-                "operativa adecuada, mostrando un comportamiento "
-                "estable y repetible a lo largo de la muestra "
-                "analizada."
+            hallazgo = self.crear_hallazgo("F003")
+
+            hallazgo["descripcion"] = (
+                "La estrategia presenta un comportamiento operativo "
+                "consistente y repetible durante la muestra analizada."
             )
+
+            hallazgo["estado"] = ESTADO_CUMPLE
+
+            hallazgo["valor"] = {
+                "expectancy": metricas["expectancy"],
+                "recovery_factor": metricas["recovery_factor"],
+                "ratio_racha": metricas["ratio_racha_perdedora"]
+            }
+
+            hallazgo["umbral"] = p
+
+            hallazgo["recomendacion"] = (
+                "Continuar aumentando la muestra estadística para "
+                "confirmar la estabilidad observada."
+            )
+
+            return hallazgo
         
         return None
     
     def aplicar_regla_F004(self, metricas, diagnostico, evidencia):
         """
+        ==========================================================
         REGLA F-004
 
-        Estado:
-            Pendiente de implementación.
+        Nombre:
+            Diversificación Operativa.
+
+        Dominio:
+            Fortalezas Estratégicas.
+
+        Prioridad:
+            Media
+
+        Evidencia utilizada:
+            • Aporte de ganancias del mejor activo.
+            • Concentración de pérdidas Top-2.
+
+        Condición:
+            Aporte ganancias <= máximo permitido.
+            Concentración pérdidas <= máximo permitido.
+
+        Interpretación:
+            La estrategia distribuye su desempeño entre
+            varios activos, reduciendo la dependencia de
+            casos individuales.
+
+        Decisión que permite tomar:
+            Mantener la selección actual de activos
+            como una base suficientemente diversificada.
+        ==========================================================
         """
+
+        cfg = self.obtener_configuracion_regla("F004")
+        p = cfg["parametros"]
+
+        ganancias_ok = (evidencia["aporte_ganancias"] <= p["aporte_ganancias_max"])
+
+        perdidas_ok = (evidencia["drawdown_top2"] <= p["drawdown_top2_max"])
+
+        if ganancias_ok and perdidas_ok:
+            hallazgo = self.crear_hallazgo("F004")
+            hallazgo["descripcion"] = (
+                "La estrategia presenta una adecuada "
+                "diversificación operativa, evitando una "
+                "dependencia excesiva de pocos activos."
+            )
+
+            hallazgo["estado"] = ESTADO_CUMPLE
+            hallazgo["valor"] = {
+                "aporte_ganancias":
+                    evidencia["aporte_ganancias"],
+
+                "drawdown_top2":
+                    evidencia["drawdown_top2"]
+            }
+
+            hallazgo["recomendacion"] = (
+                "Mantener la composición actual del universo "
+                "de activos mientras continúe mostrando un "
+                "comportamiento equilibrado."
+            )
+
+            return hallazgo
+
         return None
     
     def aplicar_regla_F005(self, metricas, diagnostico, evidencia):
@@ -1400,6 +2005,499 @@ class AnalizadorEstadisticas:
     # Iteración 6:
     #     Conclusión General
     # ============================================================
+
+    # ==========================================================
+    # MOTOR DE EVALUACIÓN DE OPTIMIZACIONES
+    # ==========================================================
+
+
+    # ============================================================
+    # 4.4 MOTOR DE EVALUACIÓN DE OPTIMIZACIONES (ICO)
+    # ============================================================
+    def calcular_ico(self, simulacion):
+        """
+        Calcula el Índice de Calidad de Optimización
+        (ICO) para una propuesta de mejora.
+
+        Este índice permite comparar distintas
+        optimizaciones utilizando un criterio
+        multicriterio homogéneo.
+        """
+
+        pesos = ICO_CONFIG["pesos"]
+        for campo in ("pf_norm", "exp_norm", "wr_norm", "cobertura_norm"):
+
+            if campo not in simulacion:
+                raise ValueError(
+                    f"No existe {campo}."
+                )
+
+        return round(
+            simulacion["pf_norm"]
+            * pesos["profit_factor"]
+            +
+            simulacion["exp_norm"]
+            * pesos["expectancy"]
+            +
+            simulacion["wr_norm"]
+            * pesos["win_rate"]
+            +
+            simulacion["cobertura_norm"]
+            * pesos["cobertura"]
+            ,
+            4
+        )
+    
+    def obtener_restricciones_ico(self):
+        """
+        Calcula automáticamente las restricciones mínimas
+        para aceptar una simulación.
+
+        Las restricciones crecen junto con el tamaño
+        de la muestra estadística.
+        """
+
+        total = len(self.df_cerradas)
+
+        min_operaciones = max(15, round(total * 0.15))
+
+        min_cobertura = max(15, round(total * 0.15))
+
+        return {
+            "min_operaciones": min_operaciones,
+            "min_cobertura": min_cobertura
+        }
+
+    def normalizar_minmax(self, valor, minimo, maximo):
+        """
+        Normalización Min-Max.
+        """
+
+        if maximo == minimo:
+            return 1.0
+
+        return ((valor - minimo) / (maximo - minimo))
+
+    # --------------------------------------------------
+    # Evaluación multicriterio
+    # --------------------------------------------------
+    def evaluar_optimizaciones(self, simulaciones):
+        """
+        Evalúa las simulaciones mediante un índice
+        multicriterio configurable.
+        """
+
+        restricciones = self.obtener_restricciones_ico()
+        simulaciones = [
+            s
+            for s in simulaciones
+            if (s["operaciones"] >= restricciones["min_operaciones"]
+                and
+                s["cobertura"] >= restricciones["min_cobertura"]
+            )
+        ]
+
+        if not simulaciones:
+            return None
+
+        # max_pf = max(s["profit_factor"] for s in simulaciones)
+        # max_wr = max(s["win_rate"] for s in simulaciones)
+        # max_exp = max(s["expectancy"] for s in simulaciones)
+
+        # ------------------------------------------------- 
+        # Valores extremos para normalización Min-Max
+        # -------------------------------------------------
+
+        pf_vals = [s["profit_factor"] for s in simulaciones if s["profit_factor"] != float("inf")]
+
+        if not pf_vals:
+            pf_vals = [1]
+        pf_min = min(pf_vals)
+        pf_max = max(pf_vals)
+
+        exp_vals = [s["expectancy"] for s in simulaciones]
+        exp_min = min(exp_vals)
+        exp_max = max(exp_vals)
+
+        wr_vals = [s["win_rate"] for s in simulaciones]
+        wr_min = min(wr_vals)
+        wr_max = max(wr_vals)
+
+        cobertura_vals = [s["cobertura"] for s in simulaciones]
+        cobertura_min = min(cobertura_vals)
+        cobertura_max = max(cobertura_vals)
+
+        for s in simulaciones:
+            # -----------------------------------------
+            # Profit Factor
+            # -----------------------------------------
+
+            # if s["profit_factor"] == float("inf"):
+            #     pf = 1.0
+
+            # elif pf_max == pf_min:
+            #     pf = 1.0
+
+            # else:
+            #     pf = ((s["profit_factor"] - pf_min) / (pf_max - pf_min))
+
+            if s["profit_factor"] == float("inf"):
+                pf = 1.0
+            else:
+                pf = self.normalizar_minmax(
+                    s["profit_factor"],
+                    pf_min,
+                    pf_max
+    )
+
+            # -----------------------------------------
+            # Expectancy
+            # -----------------------------------------
+
+            # if exp_max == exp_min:
+            #     exp = 1.0
+
+            # else:
+            #     exp = ((s["expectancy"] - exp_min) / (exp_max - exp_min))
+            exp = self.normalizar_minmax(s["expectancy"], exp_min, exp_max)
+
+            # -----------------------------------------
+            # Win Rate
+            # -----------------------------------------
+
+            # if wr_max == wr_min:
+            #     wr = 1.0
+
+            # else:
+            #     wr = ((s["win_rate"] - wr_min) / (wr_max - wr_min))
+            wr = self.normalizar_minmax(s["win_rate"], wr_min, wr_max)
+
+            # -----------------------------------------
+            # Cobertura
+            # -----------------------------------------
+
+            # if cobertura_max == cobertura_min:
+            #     cobertura  = 1.0
+
+            # else:
+            #     cobertura  = ((s["cobertura"] - cobertura_min) / (cobertura_max - cobertura_min))
+            cobertura = self.normalizar_minmax(s["cobertura"], cobertura_min, cobertura_max)
+
+            s["pf_norm"] = pf
+            s["wr_norm"] = wr
+            s["exp_norm"] = exp
+            s["cobertura_norm"] = cobertura 
+
+            s["ico"] = self.calcular_ico(s)
+
+        return max(simulaciones, key=lambda x: x["ico"])
+
+
+    # ============================================================
+    # 4.4 MOTOR DE INVESTIGACIÓN ESTRATÉGICA
+    # ============================================================
+    # ============================================================
+    # FILOSOFÍA DEL MOTOR DE INVESTIGACIÓN
+    #
+    # Este motor NO modifica estrategias.
+    #
+    # Su única responsabilidad es generar hipótesis de
+    # investigación priorizadas y sustentadas por evidencia
+    # estadística.
+    #
+    # La decisión de modificar el bot siempre pertenece
+    # al proceso de Optimización Basada en Evidencia.
+    # ============================================================
+    def obtener_investigaciones(self, metricas, diagnostico, evidencia):
+
+        investigaciones = self.ejecutar_reglas(
+            REGLAS_INVESTIGACION,
+            REGLAS_INVESTIGACION_ACTIVAS,
+            metricas,
+            diagnostico,
+            evidencia
+        )
+
+        investigaciones.sort(
+            key=lambda x: x["prioridad"]
+        )
+
+        return investigaciones
+
+    # ------------------------------------------------------------
+    # Herramientas específicas de investigación
+    # ------------------------------------------------------------
+    # ==========================================================
+    # Evidencia específica de la investigación I001
+    #
+    # No pertenece al Motor de Evidencia Global.
+    # Consume únicamente información relacionada
+    # con la investigación del Score.
+    # ==========================================================
+    def obtener_evidencia_score(self):
+        """
+        Integra la evidencia obtenida del análisis
+        segmentado y de la simulación de umbrales.
+        """
+
+        analisis = self.obtener_analisis_score()
+        simulaciones = self.obtener_simulacion_score()  
+
+        segmentos = analisis["segmentos"]
+
+        if not segmentos:
+            return {}
+
+        # Mejor y peor segmento según Profit Factor
+        mejor_segmento = max(segmentos.items(), key=lambda x: x[1]["profit_factor"])
+
+        peor_segmento = min(segmentos.items(), key=lambda x: x[1]["profit_factor"])
+
+        # -----------------------------
+        # Mejor simulación
+        # -----------------------------
+
+        simulaciones_validas = [
+            s for s in simulaciones
+            if s is not None
+        ]
+
+        if simulaciones_validas:
+            mejor_simulacion = self.evaluar_optimizaciones(simulaciones)
+        else:
+            mejor_simulacion = None
+
+        estado = (
+            "Con evidencia"
+            if mejor_simulacion is not None
+            else "Sin evidencia"
+        )
+
+        if mejor_simulacion is None:
+            return {
+
+                "estado": estado,
+
+                "mejor_rango": mejor_segmento[0],
+                "peor_rango": peor_segmento[0],
+
+                "mejor_pf_segmento":
+                    mejor_segmento[1]["profit_factor"],
+
+                "peor_pf_segmento":
+                    peor_segmento[1]["profit_factor"],
+
+                "mejor_umbral": None,
+                "mejor_pf": None,
+                "expectancy": None,
+                "win_rate": None,
+                "roi": None,
+                "cobertura": None,
+                "operaciones": 0,
+                "ico": 0,
+
+                "total_operaciones":
+                    analisis["total_operaciones"]
+            }
+
+        return {
+
+            # ==========================
+            # Evidencia análisis
+            # ==========================
+
+            "mejor_rango": mejor_segmento[0],
+            "peor_rango": peor_segmento[0],
+            "mejor_pf_segmento":
+                mejor_segmento[1]["profit_factor"],
+            "peor_pf_segmento":
+                peor_segmento[1]["profit_factor"],
+
+            # ==========================
+            # Evidencia simulación
+            # ==========================
+
+            "mejor_umbral":
+                mejor_simulacion["umbral"]
+                if mejor_simulacion else None,
+
+            "mejor_pf":
+                mejor_simulacion["profit_factor"]
+                if mejor_simulacion else None,
+
+            "expectancy":
+                mejor_simulacion["expectancy"]
+                if mejor_simulacion else None,
+
+            "win_rate":
+                mejor_simulacion["win_rate"]
+                if mejor_simulacion else None,
+
+            "roi":
+                mejor_simulacion["roi"]
+                if mejor_simulacion else None,
+
+            "cobertura":
+                mejor_simulacion["cobertura"]
+                if mejor_simulacion else None,
+
+            "operaciones":
+                mejor_simulacion["operaciones"]
+                if mejor_simulacion else None,
+
+            # ==========================
+            # General
+            # ==========================
+
+            "total_operaciones":
+                analisis["total_operaciones"],
+
+            "ico":
+                mejor_simulacion["ico"]
+                if mejor_simulacion else None,
+        }
+    
+    def obtener_conclusion_score(self):
+        """
+        Genera una conclusión automática a partir
+        de la evidencia obtenida.
+        """
+
+        e = self.obtener_evidencia_score()
+
+        if e.get("estado") == "Sin evidencia":
+            return (
+                "No existe evidencia estadística suficiente "
+                "para recomendar un cambio en el Score."
+            )
+
+        if (e["mejor_pf"] < ICO_CRITERIOS["profit_factor"]):
+            return (
+                "No existe evidencia suficiente "
+                "para modificar el Score."
+            )
+
+        if (e["cobertura"] < ICO_CRITERIOS["cobertura"]):
+            return (
+                "El mejor umbral reduce "
+                "excesivamente la cobertura. "
+                "No es recomendable."
+            )
+
+        return (f"Existe evidencia para elevar " f"el Score mínimo a " f"{e['mejor_umbral']}.")
+
+    def obtener_recomendacion_score(self):
+        """
+        Genera una recomendación preliminar basada
+        en la evidencia del Score.
+        """
+
+        e = self.obtener_evidencia_score()
+
+        if e.get("estado") == "Sin evidencia":
+            return (
+                "Continuar recopilando operaciones."
+            )
+
+        if (e["mejor_pf"] < ICO_CRITERIOS["profit_factor"]):
+            return (
+                "Continuar recopilando datos."
+            )
+
+        if (e["cobertura"] < ICO_CRITERIOS["cobertura"]):
+            return (
+                "Esperar una cobertura "
+                "estadística mayor."
+            )
+
+        return (f"Simular la estrategia " f"utilizando Score ≥ " f"{e['mejor_umbral']}.")
+
+    def aplicar_regla_I001(self, metricas, diagnostico,  evidencia):
+
+        inv = self.crear_investigacion("I001")
+
+        inv["hipotesis"] = (
+            "El Score actual discrimina las mejores "
+            "oportunidades de trading."
+        )
+
+        inv["objetivo"] = (
+            "Validar estadísticamente la capacidad "
+            "predictiva del Score."
+        )
+
+        inv["evidencia"] = (
+            self.obtener_evidencia_score()
+        )
+
+        inv["conclusion"] = (
+            self.obtener_conclusion_score()
+        )
+
+        inv["siguiente_paso"] = (
+            self.obtener_recomendacion_score()
+        )
+
+        # inv["evidencia"].get("estado")
+        inv["resultado"]["impacto"] = "Muy Alto"
+        inv["resultado"]["confianza"] = "Media"
+
+        inv["resultado"]["metricas"] = {
+
+            "analisis":
+                self.obtener_analisis_score(),
+
+            "simulacion":
+                self.obtener_simulacion_score()
+        }
+
+        # if inv["evidencia"]["estado"] == "Sin evidencia":
+        if inv["evidencia"].get("estado") == "Sin evidencia":
+            inv["resultado"]["estado"] = "Pendiente"
+            inv["resultado"]["confianza"] = "Insuficiente"
+            return inv
+
+        ico = inv["evidencia"]["ico"]
+
+        cobertura = inv["evidencia"]["cobertura"]
+        if ico >= 0.85 and cobertura >= 70:
+            confianza = "Muy Alta"
+        elif ico >= 0.70 and cobertura >= 60:
+            confianza = "Alta"
+        elif ico >= 0.55 and cobertura >= 45:
+            confianza = "Media"
+        else:
+            confianza = "Baja"
+
+        inv["resultado"]["confianza"] = confianza
+
+        return inv
+
+    # =====================================================
+    # ORDEN OFICIAL DE EJECUCIÓN DE LOS MOTORES
+    # =====================================================
+    def inicializar_motores(self):
+        """
+        Ejecuta una única vez todos los motores del analizador.
+
+        El objetivo es evitar recalcular información durante
+        la etapa de presentación.
+
+        Todas las funciones de impresión deberán consumir
+        exclusivamente estos resultados.
+        """
+        self.curva_capital = self.obtener_curva_capital()
+        self.drawdown = self.obtener_max_drawdown()
+        self.metricas_financieras = (self.obtener_metricas_financieras(self.df_cerradas))
+
+        self.metricas = self.obtener_metricas_diagnostico()
+    #    self.diagnostico = self.obtener_diagnostico()
+        self.diagnostico = self.obtener_diagnostico(self.metricas)
+        self.evidencia = self.obtener_evidencia()
+    #    self.evidencia = self.obtener_evidencia(self.metricas)
+
+        self.hallazgos = self.obtener_hallazgos(self.metricas, self.diagnostico, self.evidencia)
+        self.investigaciones = self.obtener_investigaciones(self.metricas, self.diagnostico, self.evidencia)
 
 
 
@@ -1465,7 +2563,8 @@ class AnalizadorEstadisticas:
     # --------------------------------------------------
 
     def imprimir_resumen_financiero(self):
-        datos = self.obtener_metricas_financieras(self.df_cerradas)
+    #    datos = self.obtener_metricas_financieras(self.df_cerradas)
+        datos = self.metricas_financieras
 
         print("\n" + "=" * 55)
         print("RESUMEN FINANCIERO")
@@ -1518,7 +2617,7 @@ class AnalizadorEstadisticas:
     # --------------------------------------------------
 
     def imprimir_diagnostico(self):
-        d = self.obtener_diagnostico()
+        d = self.diagnostico
 
         print("\n" + "=" * 55)
         print("DIAGNÓSTICO AUTOMÁTICO")
@@ -1526,10 +2625,6 @@ class AnalizadorEstadisticas:
 
         print(f"\nScore Estratégico : {d['score']}/100")
         print(f"Clasificación     : {d['nivel']}")
-
-        # print("\nEstado General")
-        # print("-" * 55)
-        # print(f"Estado General    : {d['estado']}")
 
         print("\nFortalezas")
 
@@ -1570,7 +2665,7 @@ class AnalizadorEstadisticas:
 
     def imprimir_evidencia(self):
 
-        e = self.obtener_evidencia()
+        e = self.evidencia
 
         print("\n" + "=" * 55)
         print("MOTOR DE EVIDENCIA")
@@ -1645,7 +2740,7 @@ class AnalizadorEstadisticas:
 
     def imprimir_resumen_evidencia(self):
 
-        e = self.obtener_evidencia()
+        e = self.evidencia
 
         if not e:
             return
@@ -1696,10 +2791,7 @@ class AnalizadorEstadisticas:
     # --------------------------------------------------
 
     def imprimir_hallazgos(self):
-        metricas = self.obtener_metricas_diagnostico()
-        diagnostico = self.obtener_diagnostico()
-        evidencia = self.obtener_evidencia()
-        hallazgos = self.obtener_hallazgos(metricas, diagnostico, evidencia)
+        hallazgos = self.hallazgos
 
         print("\n" + "=" * 60)
         print("HALLAZGOS ESTRATÉGICOS")
@@ -1709,11 +2801,32 @@ class AnalizadorEstadisticas:
 
         if hallazgos["fortalezas"]:
 
-            for fortaleza in hallazgos["fortalezas"]:
-                print(f"✓ {fortaleza}")
+            for h in hallazgos["fortalezas"]:
+                print(f"\n✓ {h['codigo']} - {h['titulo']}")
+
+                print(f"  Estado        : {h['estado']}")
+                print(f"  Prioridad     : {h['prioridad']}")
+                print(f"  Versión       : {h['version']}")
+                print(f"  Descripción   : {h['descripcion']}")
+                print(f"  Recomendación : {h['recomendacion']}")
 
         else:
             print("No se identificaron fortalezas estratégicas.")
+
+    def imprimir_investigaciones(self):
+        investigaciones = self.investigaciones
+
+        print("\n")
+        print("=" * 60)
+        print("PLAN DE INVESTIGACIÓN")
+        print("=" * 60)
+
+        for inv in investigaciones:
+            print(f"\n{inv['codigo']} - {inv['titulo']}")
+            print(f"Prioridad      : {inv['prioridad']}")
+            print(f"Hipótesis      : {inv['hipotesis']}")
+            print(f"Objetivo       : {inv['objetivo']}")
+            print(f"Siguiente paso : {inv['siguiente_paso']}")
 
 
     def imprimir_rachas(self):
@@ -1736,7 +2849,7 @@ class AnalizadorEstadisticas:
 
     def imprimir_curva_capital(self):
 
-        df = self.obtener_curva_capital()
+        df = self.curva_capital
 
         print("\n" + "=" * 55)
         print("CURVA DE CAPITAL")
@@ -1747,7 +2860,8 @@ class AnalizadorEstadisticas:
 
     def imprimir_max_drawdown(self):
 
-        datos = self.obtener_max_drawdown()
+    #    datos = self.obtener_max_drawdown()
+        datos = self.drawdown
 
         print("\n" + "=" * 55)
         print("MÁXIMO DRAWDOWN")
@@ -1767,7 +2881,15 @@ class AnalizadorEstadisticas:
         self.limpiar_datos()
 
         self.validar_consistencia()
+
+        # =====================================
+        # Inicialización única de motores
+        # =====================================
+        self.inicializar_motores()
         
+        # =====================================
+        # Presentación
+        # =====================================
         self.imprimir_resumen()
         self.imprimir_long_short()
         self.imprimir_estadisticas_simbolos()
@@ -1777,6 +2899,7 @@ class AnalizadorEstadisticas:
         self.imprimir_resumen_evidencia()
 
         self.imprimir_hallazgos()
+        self.imprimir_investigaciones()
 
         self.imprimir_rachas()
         self.imprimir_curva_capital()
