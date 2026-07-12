@@ -118,9 +118,9 @@ Durante la fase actual se consideran consolidadas las siguientes decisiones:
 
 ## Estado del Analizador.
 
-- Analizador pasa de "Hallazgos Estratégicos en desarrollo" a "Motor de Hallazgos parcialmente implementado".
+- Motor de Hallazgos Estratégicos parcialmente implementado.
 - Agregar que existe un catálogo metodológico independiente.
-- Registrar que F001 y F002 ya están implementadas.
+- Reglas implementadas: F001, F002, F003, F004
 - El siguiente objetivo pasa a ser F003–F008.
 
 # 1. Objetivo General
@@ -1597,6 +1597,31 @@ Cada capa posee una única responsabilidad claramente definida.
 
 Esta arquitectura facilita la evolución del sistema sin afectar los módulos previamente consolidados.
 
+La configuración metodológica del Motor de Hallazgos se encuentra completamente separada de la lógica mediante el registro REGLAS_HALLAZGOS.
+
+Toda regla obtiene:
+
+• umbrales;
+• prioridad;
+• versión;
+• descripción;
+
+desde dicho registro centralizado.
+
+Esto permite modificar parámetros metodológicos sin alterar la implementación de las reglas.
+
+### Principios: 
+
+Las reglas del Motor de Hallazgos constituyen unidades independientes.
+
+Cada regla:
+
+• consume únicamente métricas, diagnóstico y evidencia;
+• nunca recalcula indicadores;
+• nunca depende de otra regla;
+• puede activarse o desactivarse mediante configuración;
+• puede incorporarse o eliminarse sin afectar el resto del sistema.
+
 ---
 
 # 8.4 Capas Funcionales
@@ -2975,3 +3000,9 @@ v2.4
 v3.0
 Cada versión deberá representar un estado estable y completamente funcional de la plataforma.
 La documentación oficial deberá mantenerse sincronizada con cada versión publicada.
+
+## B.9 Nota Metodológica
+
+Mientras el Motor de Hallazgos permanezca en la versión 1.x, cada regla devolverá únicamente los hallazgos que cumplen sus condiciones.
+
+La evaluación completa de reglas cumplidas y no cumplidas queda planificada para la versión 2 del Motor, cuando todos los dominios estratégicos hayan sido implementados.

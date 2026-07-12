@@ -200,8 +200,8 @@ Su finalidad consiste en identificar aquellos aspectos que contribuyen positivam
 |----------|----------|---------|
 | F001 | Ventaja estadística | ✅ Implementada |
 | F002 | Gestión eficiente del riesgo | ✅ Implementada |
-| F003 | Consistencia operativa | ⏳ Pendiente |
-| F004 | Diversificación del rendimiento | ⏳ Pendiente |
+| F003 | Consistencia operativa | ✅ Implementada |
+| F004 | Diversificación del rendimiento | ✅ Implementada |
 | F005 | Calidad de la muestra | ⏳ Pendiente |
 | F006 | Robustez de la estrategia | ⏳ Pendiente |
 | F007 | Estabilidad temporal | ⏳ Pendiente |
@@ -322,7 +322,8 @@ Toda regla deberá documentarse utilizando la siguiente estructura.
 | Prioridades | 0 | 9 |
 | Conclusión | 0 | 1 |
 
-Total implementadas: **1 de 46 reglas**.
+Fortalezas: 4 de 9
+Total implementadas: 4 de 46 reglas.
 
 ---
 
@@ -342,6 +343,15 @@ Total implementadas: **1 de 46 reglas**.
 - Incorporación de configuración centralizada;
 - Separación entre configuración y lógica;
 - Consolidación del patrón arquitectónico para futuras reglas.
+
+## Versión 1.2
+
+• Implementación oficial F003.
+• Implementación oficial F004.
+• Consolidación del patrón de configuración centralizada.
+• Incorporación del constructor crear_hallazgo().
+• Centralización de estados (Cumple / No cumple).
+• Activación dinámica mediante REGLAS_ACTIVAS.
 
 # 11. Ciclo de Vida de una Regla
 
@@ -380,3 +390,10 @@ Una regla nunca deberá incorporarse al Analizador sin haber sido previamente do
 - Toda configuración proviene de REGLAS_HALLAZGOS;
 - Una regla únicamente devuelve None o el texto del hallazgo;
 - Una regla nunca modifica datos de entrada.
+- Toda regla obtiene su configuración desde REGLAS_HALLAZGOS.
+- Las reglas no contienen umbrales "hardcodeados".
+- Todas las reglas utilizan el constructor crear_hallazgo().
+- El contrato actual de una regla en la versión 1.x es: Cumple → devuelve hallazgo; No cumple → devuelve None
+
+## Nota Metodológica: 
+Contrato más rico (devolver siempre un objeto indicando cumplimiento o incumplimiento) se evaluará para la versión 2 del Motor de Hallazgos.
